@@ -4,7 +4,6 @@ import { ServerStyleSheet } from 'styled-components';
 export default class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
         const sheet = new ServerStyleSheet();
-        // eslint-disable-next-line testing-library/render-result-naming-convention
         const originalRenderPage = ctx.renderPage;
 
         try {

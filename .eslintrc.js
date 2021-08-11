@@ -70,6 +70,7 @@ module.exports = {
                 groups: [['^\\u0000', '^@?\\w', '^', '^\\.']],
             },
         ],
+        'testing-library/render-result-naming-convention': 'off',
     },
     overrides: [
         {
@@ -79,6 +80,7 @@ module.exports = {
                 'sonarjs/no-identical-functions': 'off',
                 'unicorn/no-useless-undefined': 'off',
                 '@typescript-eslint/no-non-null-assertion': 'off',
+                'testing-library/render-result-naming-convention': 'error',
             },
         },
     ],

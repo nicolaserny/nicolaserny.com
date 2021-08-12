@@ -71,6 +71,8 @@ module.exports = {
             },
         ],
         'testing-library/render-result-naming-convention': 'off',
+        '@next/next/google-font-display': 'off',
+        'sonarjs/no-identical-expressions': 'off',
     },
     overrides: [
         {

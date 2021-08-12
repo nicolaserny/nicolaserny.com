@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-
-const Title = styled.h1`
-    font-size: 50px;
-    font-family: 'Space Mono', monospace;
-`;
+import Header from '@components/Header';
 
 export default function Home() {
-    return <Title>Test</Title>;
+    return (
+        <>
+            <Header />
+            <main />
+        </>
+    );
 }

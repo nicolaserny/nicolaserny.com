@@ -78,4 +78,7 @@ export const SPACES = {
     7: `${64 / 16}rem`,
     8: `${96 / 16}rem`,
     9: `${128 / 16}rem`,
+    10: `${192 / 16}rem`,
 };
+
+export const MAX_CONTENT_WIDTH = '900px';

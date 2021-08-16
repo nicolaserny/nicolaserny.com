@@ -1,7 +1,10 @@
+import Bio from '@components/Bio';
 import Footer from '@components/Footer';
 import Header from '@components/Header';
+import { InferGetStaticPropsType } from 'next';
 import styled from 'styled-components';
 import { MAX_CONTENT_WIDTH } from '@/constants';
+import { getBase64ImageUrl, ImageMetadata } from '@/utils';
 
 const Wrapper = styled.div`
     display: flex;
@@ -15,18 +18,27 @@ const Main = styled.main`
     margin: 0 auto;
 `;
 
-export default function Home() {
+export default function Home({ profileImage }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <Wrapper>
             <Header />
             <Main>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, harum. Quibusdam illum velit nulla
-                    ut esse cum autem fugiat voluptas, doloremque harum pariatur nihil dicta accusantium officiis iusto
-                    quos aperiam?
-                </p>
+                <Bio profileImage={profileImage} />
             </Main>
             <Footer />
         </Wrapper>
     );
+}
+
+export async function getStaticProps() {
+    const profilePhotoId = `${process.env.NEXT_PUBLIC_CLOUDINARY_PREFIX}/profile.jpg`;
+    const profilePhotoBlurDataUrl = await getBase64ImageUrl(profilePhotoId);
+    return {
+        props: {
+            profileImage: {
+                id: profilePhotoId,
+                ...(profilePhotoBlurDataUrl && { blurDataUrl: profilePhotoBlurDataUrl }),
+            } as ImageMetadata,
+        },
+    };
 }
